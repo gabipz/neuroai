@@ -55,16 +55,16 @@ without it, ``study.download()`` raises ``ModuleNotFoundError``.
    study = ns.Study(name="Bel2026PetitListenSample", path="/data")  # MEG + speech, from OpenNeuro
    study.download()
    events = study.run()
-   events[["type", "start", "duration", "text"]].head()
+   events.query('type == "Word"')[["type", "start", "duration", "text"]].head()
 
 .. code-block:: text
 
-   type   start  duration   text
-   Meg      0.0     0.0      NaN
-   Audio    0.0    42.3      NaN
-   Word     1.52    0.22   there
-   Word     1.74    0.18     was
-   Word     1.92    0.08       a
+   type   start  duration     text
+   Word  47.195      0.37  lorsque
+   Word  47.566      0.02        j
+   Word  47.676      0.23    avais
+   Word  48.077      0.25      six
+   Word  48.327      0.18      ans
 
 ----
 
